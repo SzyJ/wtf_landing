@@ -2,26 +2,30 @@
     <head>
         <title>sZy wTf ?</title>
         <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
         <style>
+            #all_content {
+                padding: auto;
+            }
+
             #title {
                 position: relative;
                 width: min-content;
-                margin: 0 auto;
+                margin: 20px auto;
 
-                font-size: 25pt
+                font-size: 30pt
             }
-          
+
              #title_foreground {
                 font-family: 'Major Mono Display', monospace;
                 
-                opacity: 0.7;
                 color: #444444;
                 width: min-content;
                 text-align: center;
                 
                 z-index: 1;
              }
-          
+
              #title_background {
                 position: absolute;
                 opacity: 0.7;
@@ -32,20 +36,48 @@
 
                 font-family: 'Major Mono Display', monospace;
           
-                z-index: 0;
+                z-index: -1;
              }
-        </style>
+             
+             #button_container {
+                margin: 20px auto;
+                width: max-content;
+                height:max-content;
+             }
+
+             #open_terminal {
+                font-family: 'VT323', monospace;
+                font-size: 15pt;
+             
+                padding: 10px 20px;
+                width: max-content;
+                border: 3px solid #444444;
+                color: #444444;
+                
+                text-decoration: none;
+             }
+
+             #open_terminal:hover {
+                background-color: #444444;
+                color: white;
+             }
+             
+        </style>    
+        
+        <script src="javascript/type.js"></script>
     </head>
 
     <body>
-        <div id="title">
-            <div id="title_foreground">
-                sZY.WTF
+        <div id="all_content">
+            <div id="title">
+                <div id="title_foreground"></div>
+                <br/>
+                <div id="title_background">szymon<br/>jackiewicz</div>
             </div>
-            <div id="title_background">
-                szymon<br/>jackiewicz
+
+            <div id="button_container">
+                <a href="http://szymonjackiewi.cz" id="open_terminal">open terminal >_</a>
             </div>
         </div>
-
     </body>
 </html>
