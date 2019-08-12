@@ -3,9 +3,17 @@
         <title>sZy wTf ?</title>
         <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <style>
             #all_content {
-                padding: auto;
+                position:fixed;
+                top: 50%;
+                left: 50%;
+                width:min-content;
+                height:min-content;
+                margin-top: -86px; /*set to a negative number 1/2 of your height*/
+                margin-left: -120px; /*set to a negative number 1/2 of your width*/
             }
 
             #title {
@@ -45,10 +53,10 @@
                 height:max-content;
              }
 
-             #open_terminal {
+             a {
                 font-family: 'VT323', monospace;
                 font-size: 15pt;
-             
+
                 padding: 10px 20px;
                 width: max-content;
                 border: 3px solid #444444;
@@ -57,7 +65,7 @@
                 text-decoration: none;
              }
 
-             #open_terminal:hover {
+             a:hover {
                 background-color: #444444;
                 color: white;
              }
@@ -77,6 +85,7 @@
 
             <div id="button_container">
                 <a href="http://szymonjackiewi.cz" id="open_terminal">open terminal >_</a>
+                <a href="https://github.com/SzyJ/CV/raw/master/cv.pdf"><i class="fa fa-file-text-o"></i></a>
             </div>
         </div>
     </body>
