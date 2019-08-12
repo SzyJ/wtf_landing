@@ -12,67 +12,89 @@
                 left: 50%;
                 width:min-content;
                 height:min-content;
-                margin-top: -86px; /*set to a negative number 1/2 of your height*/
-                margin-left: -120px; /*set to a negative number 1/2 of your width*/
+                margin-top: -200px; /*set to a negative number 1/2 of your height*/
+                margin-left: -164px; /*set to a negative number 1/2 of your width*/
             }
 
             #title {
                 position: relative;
                 width: min-content;
-                margin: 20px auto;
+                margin: 50px auto;
 
                 font-size: 30pt
             }
 
-             #title_foreground {
-                font-family: 'Major Mono Display', monospace;
-                
-                color: #444444;
-                width: min-content;
-                text-align: center;
-                
-                z-index: 1;
-             }
+            #title_foreground {
+               font-family: 'Major Mono Display', monospace;
+               
+               color: #444444;
+               width: min-content;
+               text-align: center;
+               
+               z-index: 1;
+            }
 
-             #title_background {
-                position: absolute;
-                opacity: 0.7;
-                color: lightgray;
-                top: 0px;
-                left: 0px;
-                width: 0px;
+            #title_background {
+               position: absolute;
+               opacity: 0.7;
+               color: lightgray;
+               top: 0px;
+               left: 0px;
+               width: 0px;
+               font-family: 'Major Mono Display', monospace;
+         
+               z-index: -1;
+            }
+            
+            #button_container {
+               margin: 20px auto;
+               width: max-content;
+               height:max-content;
+            }
 
-                font-family: 'Major Mono Display', monospace;
-          
-                z-index: -1;
-             }
-             
-             #button_container {
-                margin: 20px auto;
-                width: max-content;
-                height:max-content;
-             }
+            #open_terminal {
+               font-family: 'VT323', monospace;
+               font-size: 15pt;
+               padding: 10px 20px;
+               width: max-content;
+               border: 3px solid #444444;
+               color: #444444;
+               
+               text-decoration: none;
+            }
+            #open_terminal:hover {
+               background-color: #444444;
+               color: white;
+            }
+            
+            #quick_links {
+               width: 100%;
+               text-align: center;
+               margin-top: 50px;
+            }
 
-             a {
-                font-family: 'VT323', monospace;
-                font-size: 15pt;
+            i.fa {
+               text-decoration: none;
+               padding: 5px;
+               font-size: 20pt;
+               color: lightgray;
+            }
 
-                padding: 10px 20px;
-                width: max-content;
-                border: 3px solid #444444;
-                color: #444444;
-                
-                text-decoration: none;
-             }
+            i.fa:hover {
+               color: #444444;
+            }
 
-             a:hover {
-                background-color: #444444;
-                color: white;
-             }
-             
+            p#tooltip {
+               font-family: 'VT323', monospace;
+               font-size: 15pt;
+               color: lightgray;
+               padding: 0;
+               margin: 0;
+            }
         </style>    
         
         <script src="javascript/type.js"></script>
+        <script src="javascript/quick_links.js"></script>
     </head>
 
     <body>
@@ -85,7 +107,12 @@
 
             <div id="button_container">
                 <a href="http://szymonjackiewi.cz" id="open_terminal">open terminal >_</a>
-                <a href="https://github.com/SzyJ/CV/raw/master/cv.pdf"><i class="fa fa-file-text-o"></i></a>
+            </div>
+            <div id="quick_links">
+                <p id ="tooltip">quick links</p>
+                <a href="https://github.com/SzyJ/CV/raw/master/cv.pdf" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
+                <a href="https://github.com/SzyJ/CV/raw/master/cv.pdf" onmouseover="setTooltipText('my projects repo')" onmouseout="resetTooltip()"><i class="fa fa-github"></i></a>
+                <a href="https://github.com/SzyJ/CV/raw/master/cv.pdf" onmouseover="setTooltipText('play a game')" onmouseout="resetTooltip()"><i class="fa fa-gamepad"></i></a>
             </div>
         </div>
     </body>
