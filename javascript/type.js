@@ -6,7 +6,7 @@ window.onload = function() {
 	var titleDiv = document.getElementById("title_foreground");
 	titleDiv.innerHTML = '|' + '&nbsp;'.repeat(txt.length - 1);
 	
-	const DELAY = 1000;
+	const DELAY = 2500;
 	
 	setTimeout(typeTitle, DELAY);
 }
