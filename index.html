@@ -32,6 +32,8 @@
                 transform: translate(-50%, -50%);
 
                 user-select:none;
+
+                animation: fadein 1s;
             }
 
             #title {
@@ -108,6 +110,14 @@
                color: lightgray;
                padding: 0;
                margin: 0;
+            }
+
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                } to {
+                    opacity: 1;
+                }
             }
         </style>    
         
