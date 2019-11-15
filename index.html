@@ -72,7 +72,7 @@
                height:max-content;
             }
 
-            #open_terminal {
+            #main_button {
                font-family: 'VT323', monospace;
                font-size: 15pt;
                padding: 10px 20px;
@@ -82,7 +82,7 @@
 
                text-decoration: none;
             }
-            #open_terminal:hover {
+            #main_button:hover {
                background-color: #444444;
                color: white;
             }
@@ -135,13 +135,15 @@
             </div>
 
             <div id="button_container">
-                <a href="http://szy.wtf/projects/cmd/" id="open_terminal">open terminal >_</a>
+                <a href="projects/page.html" id="main_button">goto projects;</a>
             </div>
             <div id="quick_links">
                 <p id ="tooltip">quick links</p>
-                <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf"  target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
+                <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf" target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
+                <a href="mailto:szy.jackiewicz@gmail.com" onmouseover="setTooltipText('email me!')" onmouseout="resetTooltip()"><i class="fa fa-envelope"></i></a>
                 <a href="https://github.com/SzyJ" onmouseover="setTooltipText('my projects repo')" onmouseout="resetTooltip()"><i class="fa fa-github"></i></a>
                 <a href="http://szy.wtf/projects/flip/" onmouseover="setTooltipText('play a game')" onmouseout="resetTooltip()"><i class="fa fa-gamepad"></i></a>
+                <a href="http://szy.wtf/projects/cmd/" onmouseover="setTooltipText('open terminal')" onmouseout="resetTooltip()"><i class="fa fa-terminal"></i></a>
             </div>
         </div>
     </body>
