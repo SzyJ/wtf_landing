@@ -1,2 +1,9 @@
 # Ignore projects folder as they have their own repos
-projects/
+!projects/
+!projects/index.html
+
+projects/*/
+
+
+!projects/project_banners
+!projects/project_banners/*.*
