@@ -1,4 +1,5 @@
 window.onscroll = function() {myFunction()};
+window.onload = function() {myFunction()};
 
 var scrollChangePadding = 400;
 

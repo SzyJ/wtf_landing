@@ -24,10 +24,21 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <style>
+            #fader {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                background-color: white;
+                animation: fade_out 1.5s;
+                opacity: 0%;
+            }
+
             body {
                 background: #444444;
                 color: white;
-                animation: show 1.5s;
+                
                 margin: 0;
                 transition: 0.3s all;
             }
@@ -143,30 +154,22 @@
                 vertical-align: middle;
             }
 
-            @keyframes show {
-                0% {
-                    background: white;
-                }
-                100% {
-                    background: #444444;
-                }
-            }
-
             @keyframes fade_in {
                 0% {
-                    opacity: 100%;
+                    opacity: 0%;
                 }
                 100% {
-                    opacity: 0%;
+                    opacity: 100%;
                 }
             }
 
             @keyframes fade_out {
                 0% {
-                    opacity: 0%;
+                    opacity: 100%;
                 }
                 100% {
-                    opacity: 100%;
+                    opacity: 0%;
+                    display: none;
                 }
             }
 
@@ -193,6 +196,8 @@
     </head>
 
     <body>
+
+        <div id="fader"></div>
         <div id="all_content">
             <div id="header">
                 <h1 class="title">My Projects</h1>
