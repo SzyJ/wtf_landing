@@ -1,0 +1,307 @@
+<html>
+    <head>
+        <title>sZy ProJeCts</title>
+
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+        <meta name="keywords" content="programmer, coding, console, cv, linux, java, c, c++, golang, games developer, software developer, network programmer, polish, english, japanese" />
+        <meta name="description" content="Games and software developer interested in network programming." />
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131339512-4"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-131339512-4');
+        </script>
+
+        <!-- Style -->
+        <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="../icon.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+            body {
+                background: #444444;
+                color: white;
+                animation: show 1.5s;
+                margin: 0;
+                transition: 0.3s all;
+            }
+
+            .title {
+                font-family: 'Major Mono Display', monospace;
+                
+                font-weight: normal;
+                position: relative;
+                width: min-content;
+                margin: 50px auto;
+
+                font-size: 30pt;
+            }
+
+            #header {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #footer {
+                align-items: center;
+                height: 100vh;
+            }
+
+            #footer a {
+                display: flex;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+
+            #footer a img {
+                margin:auto;
+            }
+
+            .section {
+                padding: 0 5%;
+                text-align: justify;
+
+                min-height: 500px;
+                overflow: hidden;
+                transition: 0.4s opacity;
+            }
+
+            #all_content {
+                font-family: 'Montserrat', sans-serif;
+                /*user-select: none;*/
+                width: 100%;
+            }
+
+            .left_content {
+                float: left;
+                width: 45%;
+                /* min-height: 100vh; */
+            }
+
+            .right_content {
+                float: right;
+                width: 45%;
+                /* min-height: 100vh; */
+            }
+
+            .large_text {
+                font-size: 30pt;
+                text-align: left;
+            }
+
+            ul.link_list {
+                margin: 40px 5px;
+                height: min-content;
+                list-style-type: none;
+                padding: 0;
+                display: inline-block;
+                width: 100%;
+            }
+
+            ul.link_list li {
+                opacity: 50%;
+                font-size: 15pt;
+                padding: 10px 20px;
+                margin: 5px;
+                border: 3px solid;
+                width: max-content;
+                float: right;
+            }
+
+            ul.link_list li:hover {
+                opacity: 100%;
+            }
+
+            ul.link_list li a {
+                color: inherit;
+                text-decoration: none;
+                text-emphasis: bold;
+            }
+
+            h2 {
+                margin: 0px;
+            }
+
+            .normal_text {
+                margin-top: 0px;
+                font-size: 15pt;
+            }
+
+            .center {
+                height: max-content;
+                vertical-align: middle;
+            }
+
+            @keyframes show {
+                0% {
+                    background: white;
+                }
+                100% {
+                    background: #444444;
+                }
+            }
+
+            @keyframes fade_in {
+                0% {
+                    opacity: 100%;
+                }
+                100% {
+                    opacity: 0%;
+                }
+            }
+
+            @keyframes fade_out {
+                0% {
+                    opacity: 0%;
+                }
+                100% {
+                    opacity: 100%;
+                }
+            }
+
+            .gnat_color {
+                background-color: #cc6e7e;
+                color: #eee3cd;
+            }
+
+            .midori_color {
+                background-color: #c5e0b4;
+                color: #444444;
+            }
+
+            .flip_color {
+                background-color: #3e2909;
+                color: #ef5350;
+            }
+
+        </style>
+
+        <!-- Logic -->
+        <script src="../javascript/bg_fade.js"></script>
+
+    </head>
+
+    <body>
+        <div id="all_content">
+            <div id="header">
+                <h1 class="title">My Projects</h1>
+            </div>
+
+            <div class="section" id="project1_section">
+                <h1 class="title">GNAT</h1>
+
+                <div class="left_content">
+                    
+                    <img src="project_banners/GNAT_Banner.png" alt="GNAT_Logo" width="100%">
+                    <p class="large_text">
+                        Implementations of two different techniques of achieving real-time networking without a central server.
+                    </p>
+    
+                    <p class="normal_text">
+                        C++ library with logic for establishing network connections and sending UDP packets between participants.
+                        This project was developed alongside my Newcastle University dissertation paper, a link to which can be found below.
+                    </p>
+                        
+                </div>
+                <div class="right_content">
+                    <h2>Client-Hosted server</h2>
+                    <p class="normal_text">
+                        Prioritizes consistency between all participants over speed of message broadcast. Useful for implementations for physics servers.
+                    </p>
+
+                    <h2>Peer-to-Peer Communication</h2>
+                    <p class="normal_text">
+                        Fast message transfer but can lead to desynchronization between participants especially in environments prone to packet loss or weak connections.
+                    </p>
+
+                    <img src="project_banners/GNAT_Models.png" alt="GNAT_Models" width="100%">
+
+                </div>
+
+                <ul class="link_list">
+                    <li><a href="https://github.com/SzyJ/GNAT_Core">Project Link</a></li>
+                    <li><a href="https://github.com/SzyJ/Game_Networking_Models/raw/master/Dissertation/main.pdf">Dissertation Paper</a></li>
+                </ul>
+
+            </div>
+                
+
+            <div class="section" id="project2_section">
+                <h1 class="title">Midori Engine</h1>
+                <div class="left_content">
+                    <img src="project_banners/midori_engine_banner.png" alt="midori_Logo" width="100%">
+                    <p class="large_text">
+                        Custom game engine built from scratch.
+                        
+                    </p>
+                    <p class="normal_text">
+                        The project architecture is based on the implementation of the Hazel Engine by Yan Chernikov.
+                        It is constantly evolving as I add new features to the engine when using it in my university projects.
+                    </p>
+                </div>
+                <div class="right_content">
+                    <h2>The Renderer</h2>
+                    <p class="normal_text">
+                        The engine currently only supports OpenGL however the implementation is done in such away that the API is abstracted away from the implementation allowing for easy extention into other APIs in the future. 
+                    </p>
+
+                    <h2>Future Developement</h2>
+                    <p class="normal_text">
+                        The primary goal in the process of creating this engine, is to create a tool that is useful for others and myself when creating any real time applications. Alongside being a learning opportunity for myself to investigate what runs the games we play, I plan on implementing an easy interface for adding multiplayer funtionality in a way that I find more intuitive than existing solutions. 
+                    </p>
+                    
+                </div>
+                <ul class="link_list">
+                    <li><a href="https://github.com/SzyJ/midori_engine">Project Link</a></li>
+                    <li><a href="https://github.com/SzyJ/OpenGL_Environments">Example usage project [WIP]</a></li>
+                </ul>
+            </div>
+
+            <div class="section" id="project3_section">
+                    <h1 class="title">Flip</h1>
+                    <div class="left_content">
+                        <img src="https://github.com/SzyJ/Flip/blob/master/Images/Flip_Preview.gif?raw=true" alt="flip_demo" width="100%">
+                        <p class="large_text">
+                            Fast pased platformer! How long can you last?
+                        </p>
+                    </div>
+                    <div class="right_content">
+                        <h2>Game Mechanics</h2>
+                        <p class="normal_text">
+                            Movement was designed in a way to imitate the smoothness and responsiveness of the Super Meat Boy games. Moving left and right happens instantly with no acceleration and holding the jump button, allows for a higher jump. One flip can be done after leaving the ground, however this can be refreshed by touching a wall. Controller is recommended!
+                        </p>
+    
+                        <h2>The Gameplay</h2>
+                        <p class="normal_text">
+                            The timer is constantly drianing and the only way to refill it, is to kill the ghosts that spawn around you; the longer you can survive, the higher the score. Be careful though! if you get too close to the ghosts, they will attack ending the run and giving your score a harsh penalty. 
+                        </p>
+                        <h2>Art</h2>
+                        <p class="normal_text">
+                            The art used in the map tiles has been found on the Unity Asset Store but all other art has been drawn and animated by me!
+                        </p>
+                        
+                    </div>
+                    <ul class="link_list">
+                        <li><a href="https://github.com/SzyJ/Flip">Project Link</a></li>
+                        <li><a href="http://szy.wtf/projects/flip/">Play it here!</a></li>
+                    </ul>
+                </div>
+
+            <div class="section" id="footer">
+                <a href="http://szy.wtf"><img src="http://szy.wtf/sj_logo/SJ_Logo_Transparent.svg" alt="sj_logo" width="10%"></a>
+            </div>
+
+        </div>
+    </body>
+</html>
