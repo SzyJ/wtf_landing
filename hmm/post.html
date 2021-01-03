@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>Hmm...</title>
+        <!-- Metadata -->
+        <meta charset="UTF-8">
+
+        <!-- Logic -->
+        <script src="logic/requester.js"></script>
+        <script src="logic/one-main.js"></script>
+
+        <!-- Style -->
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background: white;
+            }
+
+            div.title > h1.maintitle {
+                font-family: 'DM Serif Display', serif;
+                font-size: 100px;
+                width: max-content;
+                margin: auto;
+            }
+
+            div.title > h1.maintitle > a {
+                color: black;
+                text-decoration: none;
+            }
+
+            div.title > h1.maintitle > a:hover {
+                color: #747474;
+            }
+
+            div#Content {
+                max-width: 80.9vh;
+                margin: auto;
+            }
+
+            div.post {
+                width: auto;
+                min-width: 450px;
+                max-width: 80.9vh;
+
+                margin: 25px;
+                padding: 25px;
+                background: white;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+                box-shadow: 0px 0px 20px 5px lightgray;
+            }
+
+            div.post h3 {
+                font-family: 'DM Serif Display', serif;
+                font-style: italic;
+                font-size: 60px;
+
+                margin: 0;
+                display: block;
+                height: max-content;
+            }
+
+            div.post p.date {
+                font-family: 'DM Serif Display', serif;
+                color: #84828f;
+                margin-top: 0;
+                text-align: right;
+            }
+
+            div.post p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 20px;
+
+                margin: 20px 60px;
+                display: block;
+
+                color: black;
+            }
+
+            /* Loader code begin */
+            /* https://projects.lukehaas.me/css-loaders/ */
+            .loader,
+            .loader:before,
+            .loader:after {
+              border-radius: 50%;
+              width: 2.5em;
+              height: 2.5em;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+              -webkit-animation: load7 1.8s infinite ease-in-out;
+              animation: load7 1.8s infinite ease-in-out;
+            }
+            .loader {
+              color: #444444;
+              font-size: 10px;
+              margin: 80px auto;
+              position: relative;
+              text-indent: -9999em;
+              -webkit-transform: translateZ(0);
+              -ms-transform: translateZ(0);
+              transform: translateZ(0);
+              -webkit-animation-delay: -0.16s;
+              animation-delay: -0.16s;
+            }
+            .loader:before,
+            .loader:after {
+              content: '';
+              position: absolute;
+              top: 0;
+            }
+            .loader:before {
+              left: -3.5em;
+              -webkit-animation-delay: -0.32s;
+              animation-delay: -0.32s;
+            }
+            .loader:after {
+              left: 3.5em;
+            }
+            @-webkit-keyframes load7 {
+              0%,
+              80%,
+              100% {
+                box-shadow: 0 2.5em 0 -1.3em;
+              }
+              40% {
+                box-shadow: 0 2.5em 0 0;
+              }
+            }
+            @keyframes load7 {
+              0%,
+              80%,
+              100% {
+                box-shadow: 0 2.5em 0 -1.3em;
+              }
+              40% {
+                box-shadow: 0 2.5em 0 0;
+              }
+            }
+            /* Loader code end */
+        </style>
+    </head>
+
+    <body>
+        <div class="title">
+            <h1 class="maintitle"><a href="https://szy.wtf/hmm">Hmm...</a></h1>
+        </div>
+        <div id="Content">
+            <!--div class="post">
+                <h3>Title</h3>
+                <p class="date">Date</p>
+                <p>Content</p>
+            </div-->
+        </div>
+    </body>
+</html>
