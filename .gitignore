@@ -4,6 +4,7 @@
 
 projects/*/
 
+projects/hmm
 
 !projects/project_banners
 !projects/project_banners/*.*
