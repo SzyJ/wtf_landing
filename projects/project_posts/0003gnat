@@ -1,0 +1,32 @@
+<div class="section" id="project3_section">
+     <h1 class="title">GNAT</h1>
+
+     <div class="left_content">
+         <img src="projects/project_banners/GNAT_Banner.png" alt="GNAT_Logo" width="100%">
+         <p class="large_text">
+             Implementations of two different techniques of achieving real-time networking without a central server.
+         </p>
+         <p class="normal_text">
+             C++ library with logic for establishing network connections and sending UDP packets between participants.
+             This project was developed alongside my Newcastle University dissertation paper, a link to which can be found below.
+         </p>
+     </div>
+
+     <div class="right_content">
+         <h2>Client-Hosted server</h2>
+         <p class="normal_text">
+             Prioritizes consistency between all participants over speed of message broadcast. Useful for implementations for physics servers.
+         </p>
+         <h2>Peer-to-Peer Communication</h2>
+         <p class="normal_text">
+             Fast message transfer but can lead to desynchronization between participants especially in environments prone to packet loss or weak connections.
+         </p>
+         <img src="projects/project_banners/GNAT_Models.png" alt="GNAT_Models" width="100%">
+     </div>
+
+     <ul class="link_list">
+         <li><a href="https://github.com/SzyJ/GNAT_Core">Project Link</a></li>
+         <li><a href="https://github.com/SzyJ/Game_Networking_Models/raw/master/Dissertation/main.pdf">Dissertation Paper</a></li>
+     </ul>
+
+ </div>

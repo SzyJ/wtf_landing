@@ -1,0 +1,29 @@
+<div class="project" id="project1_section">
+    <h1 class="title">Flip</h1>
+    <div class="left_content">
+        <img src="https://github.com/SzyJ/Flip/blob/master/Images/Flip_Preview.gif?raw=true" alt="flip_demo" width="100%">
+        <p class="large_text">
+            Fast pased platformer! How long can you last?
+        </p>
+    </div>
+    <div class="right_content">
+        <h2>Game Mechanics</h2>
+        <p class="normal_text">
+            Movement was designed in a way to imitate the smoothness and responsiveness of the Super Meat Boy games. Moving left and right happens instantly with no acceleration and holding the jump button, allows for a higher jump. One flip can be done after leaving the ground, however this can be refreshed by touching a wall. Controller is recommended!
+        </p>
+
+        <h2>The Gameplay</h2>
+        <p class="normal_text">
+            The timer is constantly drianing and the only way to refill it, is to kill the ghosts that spawn around you; the longer you can survive, the higher the score. Be careful though! if you get too close to the ghosts, they will attack ending the run and giving your score a harsh penalty. 
+        </p>
+        <h2>Art</h2>
+        <p class="normal_text">
+            The art used in the map tiles has been found on the Unity Asset Store but all other art has been drawn and animated by me!
+        </p>
+        
+    </div>
+    <ul class="link_list">
+        <li><a href="https://github.com/SzyJ/Flip">Project Link</a></li>
+        <li><a href="https://szy.wtf/projects/flip/">Play it here!</a></li>
+    </ul>
+</div>
