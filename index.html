@@ -24,15 +24,23 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <style>
+            body {
+                margin: 0;
+                background: white;
+                color: #444444;
+
+                transition: 0.3s all;
+            }
+
+            div#header {
+                padding-top: 25vh;
+                height: 50vh;
+                min-height: 25px;
+            }
+
             #all_content {
-                position:fixed;
-                top: 50%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-
+                display: inline;
                 user-select:none;
-
                 animation: fadein 1s;
             }
 
@@ -119,35 +127,285 @@
                     opacity: 1;
                 }
             }
+
+
+            /* Post Styling */
+            div#loaded_content.hmm {
+                margin: auto;
+                width: fit-content;
+            }
+
+            div.post {
+                width: auto;
+                min-height: 50vh;
+                min-width: 450px;
+                max-width: 80.9vh;
+
+                margin: 25px;
+                padding: 25px;
+                background: white;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            div.post:nth-child(odd) {
+                padding-right: 175px;
+            }
+
+            div.post:nth-child(even) {
+                padding-left: 175px;
+            }
+
+            div.post:nth-child(even) h3 {
+                text-align: right;
+            }
+
+            div.post h3 {
+                font-family: 'DM Serif Display', serif;
+                font-style: italic;
+                font-size: 60px;
+
+                margin: 0;
+                display: block;
+                height: max-content;
+            }
+
+            div.post p.date {
+                font-family: 'DM Serif Display', serif;
+                color: #84828f;
+                margin-top: 0;
+            }
+
+            div.post:nth-child(even) p.date {
+                text-align: right;
+            }
+
+            div.post:nth-child(odd) p.date {
+                text-align: left;
+            }
+
+            div.post p {
+                font-family: 'Poppins', sans-serif;
+                font-size: 20px;
+
+                margin: 20px 60px;
+                display: block;
+
+                color: #444444;
+                /* Text truncation */
+                line-height: 1.6;
+                max-height: 4.0em; /* 2.5*lineHeight */
+                overflow: hidden;
+
+                transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            div.post:hover {
+                box-shadow: 0px 0px 20px 5px lightgray;
+            }
+
+            div.post:hover p {
+                /* For transitions to work correctly, we need to decide on a max number of lines allowed */
+                max-height: 100em;
+                color: black;
+            }
+
+
+            /* Project Styling */
+            div#loaded_content.project {
+                padding: 0 0 25vh 0;
+                font-family: 'Montserrat', sans-serif;
+                width: 100%;
+                max-width: 1006pt;
+                margin: auto;
+            }
+
+            .project {
+                padding: 0 5%;
+                text-align: justify;
+
+                min-height: 500px;
+                overflow: hidden;
+                transition: 0.4s opacity;
+            }
+
+            div.project .title {
+                font-family: 'Major Mono Display', monospace;
+                
+                font-weight: normal;
+                position: relative;
+                width: min-content;
+                margin: 50px auto;
+
+                font-size: 30pt;
+            }
+
+            div.project ul.link_list {
+                margin: 40px 5px;
+                height: min-content;
+                list-style-type: none;
+                padding: 0;
+                display: inline-block;
+                width: 100%;
+            }
+
+            div.project ul.link_list li {
+                opacity: 50%;
+                font-size: 15pt;
+                padding: 10px 20px;
+                margin: 5px;
+                border: 3px solid;
+                width: max-content;
+                float: right;
+            }
+
+            div.project ul.link_list li:hover {
+                opacity: 100%;
+            }
+
+            div.project ul.link_list li a {
+                color: inherit;
+                text-decoration: none;
+                text-emphasis: bold;
+            }
+
+
+            div.project .left_content {
+                float: left;
+                width: 45%;
+                /* min-height: 100vh; */
+            }
+
+            div.project .right_content {
+                float: right;
+                width: 45%;
+                /* min-height: 100vh; */
+            }
+
+            div.project .large_text {
+                font-size: 30pt;
+                text-align: left;
+            }
+
+            .gnat_color {
+                background-color: #cc6e7e;
+                color: #eee3cd;
+            }
+
+            .midori_color {
+                background-color: #c5e0b4;
+                color: #444444;
+            }
+
+            .flip_color {
+                background-color: #3e2909;
+                color: #ef5350;
+            }
+
+            /* Loader code begin */
+            /* https://projects.lukehaas.me/css-loaders/ */
+            .loader,
+            .loader:before,
+            .loader:after {
+              border-radius: 50%;
+              width: 2.5em;
+              height: 2.5em;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+              -webkit-animation: load7 1.8s infinite ease-in-out;
+              animation: load7 1.8s infinite ease-in-out;
+            }
+            .loader {
+              color: #444444;
+              font-size: 10px;
+              margin: 80px auto;
+              position: relative;
+              text-indent: -9999em;
+              -webkit-transform: translateZ(0);
+              -ms-transform: translateZ(0);
+              transform: translateZ(0);
+              -webkit-animation-delay: -0.16s;
+              animation-delay: -0.16s;
+            }
+            .loader:before,
+            .loader:after {
+              content: '';
+              position: absolute;
+              top: 0;
+            }
+            .loader:before {
+              left: -3.5em;
+              -webkit-animation-delay: -0.32s;
+              animation-delay: -0.32s;
+            }
+            .loader:after {
+              left: 3.5em;
+            }
+            @-webkit-keyframes load7 {
+              0%,
+              80%,
+              100% {
+                box-shadow: 0 2.5em 0 -1.3em;
+              }
+              40% {
+                box-shadow: 0 2.5em 0 0;
+              }
+            }
+            @keyframes load7 {
+              0%,
+              80%,
+              100% {
+                box-shadow: 0 2.5em 0 -1.3em;
+              }
+              40% {
+                box-shadow: 0 2.5em 0 0;
+              }
+            }
+            /* Loader code end */
         </style>
 
         <!-- Logic -->
+
+        <!-- Animations and Style -->
         <script src="javascript/type.js"></script>
         <script src="javascript/quick_links.js"></script>
+        <script src="javascript/bg_fade.js"></script>
+        <!-- Content Loading -->
+        <script src="javascript/content/requester.js"></script>
+        <script src="javascript/content/main.js"></script>
     </head>
 
     <body>
-        <div id="all_content">
-            <div id="title">
-                <div id="title_foreground"></div>
-                <br/>
-                <div id="title_background">szymon<br/>jackiewicz</div>
-            </div>
+        <div id="header">
+            <div id="all_content">
+                <div id="title">
+                    <div id="title_foreground"></div>
+                    <br/>
+                    <div id="title_background">szymon<br/>jackiewicz</div>
+                </div>
 
-            <div id="button_container">
-                <a href="projects/" class="main_button"><i class="fa fa-briefcase"></i> Projects</a>
-                
-                <a href="hmm/" class="main_button"><i class="fa fa-cloud"></i> Hmm...</a>
-            </div>
+                <div id="button_container">
+                    <a onclick="ResetContent(true)" class="main_button"><i class="fa fa-briefcase"></i> Projects</a>
+                    <a onclick="ResetContent(false)" class="main_button"><i class="fa fa-cloud"></i> Hmm...</a>
+                </div>
 
-            <div id="quick_links">
-                <p id ="tooltip">quick links</p>
-                <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf" target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
-                <a href="mailto:szy.jackiewicz@gmail.com" onmouseover="setTooltipText('email me!')" onmouseout="resetTooltip()"><i class="fa fa-envelope"></i></a>
-                <a href="https://github.com/SzyJ" onmouseover="setTooltipText('my projects repo')" onmouseout="resetTooltip()"><i class="fa fa-github"></i></a>
-                <a href="https://szy.wtf/projects/flip/" onmouseover="setTooltipText('play a game')" onmouseout="resetTooltip()"><i class="fa fa-gamepad"></i></a>
-                <a href="https://szy.wtf/projects/cmd/" onmouseover="setTooltipText('open terminal')" onmouseout="resetTooltip()"><i class="fa fa-terminal"></i></a>
+                <div id="quick_links">
+                    <p id ="tooltip">quick links</p>
+                    <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf" target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
+                    <a href="mailto:szy.jackiewicz@gmail.com" onmouseover="setTooltipText('email me!')" onmouseout="resetTooltip()"><i class="fa fa-envelope"></i></a>
+                    <a href="https://github.com/SzyJ" onmouseover="setTooltipText('my projects repo')" onmouseout="resetTooltip()"><i class="fa fa-github"></i></a>
+                    <a href="https://szy.wtf/projects/flip/" onmouseover="setTooltipText('play a game')" onmouseout="resetTooltip()"><i class="fa fa-gamepad"></i></a>
+                    <a href="https://szy.wtf/projects/cmd/" onmouseover="setTooltipText('open terminal')" onmouseout="resetTooltip()"><i class="fa fa-terminal"></i></a>
+                </div>
             </div>
         </div>
+
+        <div id="loaded_content" class="hmm">
+        </div>
+
     </body>
 </html>

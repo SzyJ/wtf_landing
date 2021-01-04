@@ -1,7 +1,10 @@
 var loadingContent = false;
 var lastResponseId = -1;
 
-const URL = "https://szy.wtf/sslapi/hmm-wtf/"
+const HMM_URL = "https://szy.wtf/sslapi/hmm-wtf/";
+const PROJ_URL = "https://szy.wtf/sslapi/hmm-projects/";
+
+var providerUrl;
 
 function InitialContentRequest()
 {
@@ -17,7 +20,7 @@ function InitialContentRequest()
         }
         loadingContent = false;
     };
-    xhttp.open("GET", URL + "request/init", true);
+    xhttp.open("GET", providerUrl + "request/init", true);
     xhttp.send();
 }
 
@@ -35,7 +38,7 @@ function NextContentRequest(lastReceivedId)
         }
         loadingContent = false;
     };
-    xhttp.open("GET", URL + "request/next/" + lastReceivedId, true);
+    xhttp.open("GET", providerUrl + "request/next/" + lastReceivedId, true);
     xhttp.send();
 }
 
