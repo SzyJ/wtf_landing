@@ -1,5 +1,6 @@
 var loadProjects = true;
 var scrollChangePadding = 40;
+var initialised = false;
 
 window.onscroll = function()
 {
@@ -25,7 +26,11 @@ window.onload = function()
 
 function ResetContent(setToProjects)
 {
+    if (initialised && loadProjects == setToProjects) return;
+    initialised = true;
+
     document.getElementById("loaded_content").innerHTML = "";
+    document.getElementById('scroll_arrow').style.opacity = "0";
 
     // Change provider URL
     loadProjects = setToProjects;
@@ -34,12 +39,18 @@ function ResetContent(setToProjects)
         providerUrl = PROJ_URL;
         document.getElementById('loaded_content').classList.remove("hmm")
         document.getElementById('loaded_content').className = "project"
+
+        document.getElementById('proj_button').classList.add('selected');
+        document.getElementById('hmm_button').classList.remove('selected');
     }
     else
     {
         providerUrl = HMM_URL;
         document.getElementById('loaded_content').classList.remove("project")
         document.getElementById('loaded_content').className = "hmm"
+
+        document.getElementById('proj_button').classList.remove('selected');
+        document.getElementById('hmm_button').classList.add('selected');
     }
     loadingContent = false;
     lastResponseId = -1;
@@ -66,6 +77,7 @@ function GetNextContent()
 
 function AddNewContent(content)
 {
+    document.getElementById('scroll_arrow').style.opacity = "1";
     if (loadProjects)
     {
         AddNewProject(content);

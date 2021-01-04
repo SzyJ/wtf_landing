@@ -75,30 +75,56 @@
             }
 
             #button_container {
-               margin: 20px auto;
-               width: max-content;
-               height:max-content;
+                display: flex;
+                margin: 20px auto;
+                width: 300px;
+                height:max-content;
             }
 
-            .main_button {
-               font-family: 'VT323', monospace;
-               font-size: 15pt;
-               padding: 10px 20px;
-               width: max-content;
-               border: 3px solid #444444;
-               color: #444444;
+            #button_container a.button {
+                border: 3px solid #444444;
+                padding: 6px 12px;
+                width: 100%;
+                text-align: center;
+                color: #444444;
+                flex: 2;
 
-               text-decoration: none;
+                transition: 0.3s all;
+
+                background: white;
+
+                font-size: 15pt;
+                overflow: hidden;
+                white-space: nowrap;
+
+                font-family: 'Major Mono Display', monospace;
+                text-decoration: none;
             }
-            .main_button:hover {
-               background-color: #444444;
-               color: white;
+
+            #button_container a.button:hover {
+                flex: 4;
+            }
+
+            #button_container > a.button.selected {
+                background-color: #444444;
+                color: white;
+                flex: 8;
+            }
+
+            #button_container > a#proj_button:hover::after,
+            #button_container > a#proj_button.selected::after {
+                content: " projects";
+            }
+
+            #button_container > a#hmm_button:hover::after,
+            #button_container > a#hmm_button.selected::after {
+                content: " hmm...";
             }
 
             #quick_links {
                width: 100%;
                text-align: center;
-               margin-top: 50px;
+               margin-top: 150px;
             }
 
             #quick_links i.fa {
@@ -120,6 +146,59 @@
                margin: 0;
             }
 
+
+            #scroll_arrow {
+                opacity: 0;
+                width: 100%;
+                height: 70px;
+            }
+            .arrow {
+                position: relative;
+                left: 50%;
+            }
+
+            .arrow:before {
+                position: absolute;
+                left: 50%;
+            }
+
+            .arrow{
+                width: 40px;
+                height: 40px;
+                top: 50%;
+                margin: -20px 0 0 -20px;
+                -webkit-transform: rotate(45deg);
+                border-left: none;
+                border-top: none;
+                border-right: 2px #444444 solid;
+                border-bottom: 2px #444444 solid;
+            }
+
+            .arrow:before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                top: 50%;
+                margin: -10px 0 0 -10px;
+                border-left: none;
+                border-top: none;
+                border-right: 1px #444444 solid;
+                border-bottom: 1px #444444 solid;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-name: arrow;
+            }
+            
+            @keyframes arrow {
+                0% { 
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(-10px, -10px);
+                }
+            }
+            
             @keyframes fadein {
                 from {
                     opacity: 0;
@@ -388,11 +467,6 @@
                     <div id="title_background">szymon<br/>jackiewicz</div>
                 </div>
 
-                <div id="button_container">
-                    <a onclick="ResetContent(true)" class="main_button"><i class="fa fa-briefcase"></i> Projects</a>
-                    <a onclick="ResetContent(false)" class="main_button"><i class="fa fa-cloud"></i> Hmm...</a>
-                </div>
-
                 <div id="quick_links">
                     <p id ="tooltip">quick links</p>
                     <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf" target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
@@ -400,6 +474,16 @@
                     <a href="https://github.com/SzyJ" onmouseover="setTooltipText('my projects repo')" onmouseout="resetTooltip()"><i class="fa fa-github"></i></a>
                     <a href="https://szy.wtf/projects/flip/" onmouseover="setTooltipText('play a game')" onmouseout="resetTooltip()"><i class="fa fa-gamepad"></i></a>
                     <a href="https://szy.wtf/projects/cmd/" onmouseover="setTooltipText('open terminal')" onmouseout="resetTooltip()"><i class="fa fa-terminal"></i></a>
+                </div>
+                
+                
+                <div id="button_container">
+                    <a onclick="ResetContent(true)" id="proj_button" class="button selected"><i class="fa fa-briefcase"></i></a>
+                    <a onclick="ResetContent(false)" id="hmm_button" class="button"><i class="fa fa-cloud"></i></a>
+                </div>
+
+                <div id="scroll_arrow">
+                    <div class="arrow"></div>
                 </div>
             </div>
         </div>
