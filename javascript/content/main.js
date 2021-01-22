@@ -21,7 +21,7 @@ window.onload = function()
     setTimeout(typeTitle, DELAY);
 
     // Load Content
-    ResetContent(loadProjects);
+    ResetContent(currentContent);
 };
 
 function ResetContent(setToContent)
