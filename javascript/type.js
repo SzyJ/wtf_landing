@@ -1,5 +1,5 @@
 var i = 0;
-var txt = 'sZY.WTF';
+var txt = 'Szy . WTF';
 var speed = 50;
 
 //window.onload = function() {
@@ -20,7 +20,7 @@ function typeTitle() {
 		
 		foregroundElement.innerHTML = current.substr(0, i) + txt.charAt(i) 
 		if (i < txt.length - 1) {
-			foregroundElement.innerHTML += '|' + '&nbsp;'.repeat(txt.length - i - 2);
+			foregroundElement.innerHTML += '&nbsp;'.repeat(txt.length - i - 1);
 		}
 		
 		i++;

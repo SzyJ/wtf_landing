@@ -1,10 +1,10 @@
-var loadProjects = true;
+var currentContent = 1;
 var scrollChangePadding = 40;
 var initialised = false;
 
 window.onscroll = function()
 {
-    if (loadProjects)
+    if (currentContent == 0)
     {
         ProjBGFadeUpdate();
     }
@@ -16,7 +16,7 @@ window.onload = function()
 {
     // Text animation
     var titleDiv = document.getElementById("title_foreground");
-    titleDiv.innerHTML = '|' + '&nbsp;'.repeat(txt.length - 1);
+    titleDiv.innerHTML = '&nbsp;'.repeat(txt.length - 1);
     const DELAY = 2500;
     setTimeout(typeTitle, DELAY);
 
@@ -24,33 +24,57 @@ window.onload = function()
     ResetContent(loadProjects);
 };
 
-function ResetContent(setToProjects)
+function ResetContent(setToContent)
 {
-    if (initialised && loadProjects == setToProjects) return;
+    if (initialised && currentContent == setToContent) return;
     initialised = true;
 
     document.getElementById("loaded_content").innerHTML = "";
-    document.getElementById('scroll_arrow').style.opacity = "0";
+    document.getElementById('scroll_arrow').style.display = "none";
 
     // Change provider URL
-    loadProjects = setToProjects;
-    if (setToProjects)
+    currentContent = setToContent;
+    document.getElementById('quick_links').style.display = "none";
+
+    if (setToContent == 0)
     {
         providerUrl = PROJ_URL;
         document.getElementById('loaded_content').classList.remove("hmm")
+        document.getElementById('loaded_content').classList.remove("main")
         document.getElementById('loaded_content').className = "project"
 
         document.getElementById('proj_button').classList.add('selected');
+        document.getElementById('home_button').classList.remove('selected');
         document.getElementById('hmm_button').classList.remove('selected');
+
+        document.getElementById('home_button').innerHTML = '<i class="fa fa-home"></i>';
     }
-    else
+    else if (setToContent == 1)
+    {
+        document.getElementById('loaded_content').classList.remove("project")
+        document.getElementById('loaded_content').classList.remove("hmm")
+        document.getElementById('loaded_content').className = "main"
+
+        document.getElementById('proj_button').classList.remove('selected');
+        document.getElementById('home_button').classList.add('selected');
+        document.getElementById('hmm_button').classList.remove('selected');
+
+        document.getElementById('quick_links').style.display = "block";
+        document.getElementById('home_button').innerHTML = 'welcome';
+        return;
+    }
+    else if (setToContent == 2)
     {
         providerUrl = HMM_URL;
         document.getElementById('loaded_content').classList.remove("project")
+        document.getElementById('loaded_content').classList.remove("main")
         document.getElementById('loaded_content').className = "hmm"
 
         document.getElementById('proj_button').classList.remove('selected');
+        document.getElementById('home_button').classList.remove('selected');
         document.getElementById('hmm_button').classList.add('selected');
+
+        document.getElementById('home_button').innerHTML = '<i class="fa fa-home"></i>';
     }
     loadingContent = false;
     lastResponseId = -1;
@@ -77,12 +101,12 @@ function GetNextContent()
 
 function AddNewContent(content)
 {
-    document.getElementById('scroll_arrow').style.opacity = "1";
-    if (loadProjects)
+    document.getElementById('scroll_arrow').style.display = "block";
+    if (currentContent == 0)
     {
         AddNewProject(content);
     }
-    else
+    else if (currentContent == 2)
     {
         AddNewPost(content);
     }
