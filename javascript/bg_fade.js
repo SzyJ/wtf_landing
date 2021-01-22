@@ -1,7 +1,8 @@
 var bgFadePadding = 300;
 
 function ProjBGFadeUpdate() {
-    if (document.getElementById('project1_section').getBoundingClientRect().top < bgFadePadding)
+    if (document.getElementById('project1_section') &&
+        document.getElementById('project1_section').getBoundingClientRect().top < bgFadePadding)
     {
         document.body.className = 'other_proj_color';
 
@@ -13,7 +14,8 @@ function ProjBGFadeUpdate() {
         document.getElementById('project2_section').style.opacity = "0";
         document.getElementById('project1_section').style.opacity = "1";
     }
-    else if (document.getElementById('project2_section').getBoundingClientRect().top < bgFadePadding)
+    else if (document.getElementById('project2_section') &&
+             document.getElementById('project2_section').getBoundingClientRect().top < bgFadePadding)
     {
         document.body.className = 'wintui_color';
 
@@ -25,7 +27,8 @@ function ProjBGFadeUpdate() {
         document.getElementById('project2_section').style.opacity = "1";
         document.getElementById('project1_section').style.opacity = "0";
     }
-    else if (document.getElementById('project3_section').getBoundingClientRect().top < bgFadePadding)
+    else if (document.getElementById('project3_section') &&
+             document.getElementById('project3_section').getBoundingClientRect().top < bgFadePadding)
     {
         document.body.className = 'flip_color';
 
@@ -37,7 +40,8 @@ function ProjBGFadeUpdate() {
         document.getElementById('project2_section').style.opacity = "0";
         document.getElementById('project1_section').style.opacity = "0";
     }
-    else if (document.getElementById('project4_section').getBoundingClientRect().top < bgFadePadding)
+    else if (document.getElementById('project4_section') &&
+             document.getElementById('project4_section').getBoundingClientRect().top < bgFadePadding)
     {
         document.body.className = 'midori_color';
 
@@ -49,7 +53,8 @@ function ProjBGFadeUpdate() {
         document.getElementById('project2_section').style.opacity = "0";
         document.getElementById('project1_section').style.opacity = "0";
     }
-    else if (document.getElementById('project5_section').getBoundingClientRect().top < bgFadePadding)
+    else if (document.getElementById('project5_section') &&
+             document.getElementById('project5_section').getBoundingClientRect().top < bgFadePadding)
     {
         document.body.className = 'gnat_color';
 
@@ -61,7 +66,8 @@ function ProjBGFadeUpdate() {
         document.getElementById('project2_section').style.opacity = "0";
         document.getElementById('project1_section').style.opacity = "0";
     }
-    else if (document.getElementById('project6_section').getBoundingClientRect().top < bgFadePadding)
+    else if (document.getElementById('project6_section') &&
+             document.getElementById('project6_section').getBoundingClientRect().top < bgFadePadding)
     {
         document.body.className = 'hmm_color';
 
