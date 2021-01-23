@@ -8,6 +8,8 @@ var providerUrl;
 
 function InitialContentRequest()
 {
+    console.log("Sending: " + providerUrl + "request/init");
+
     var responseStr;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function()
@@ -18,7 +20,7 @@ function InitialContentRequest()
             GetLastIdInContent(responseStr);
             AddNewContent(responseStr);
         }
-        loadingContent = false;
+        //loadingContent = false;
     };
     xhttp.open("GET", providerUrl + "request/init", true);
     xhttp.send();
@@ -26,6 +28,7 @@ function InitialContentRequest()
 
 function NextContentRequest(lastReceivedId)
 {
+    console.log("Sending: " + providerUrl + "request/next/" + (lastReceivedId - 1));
     var responseStr;
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function()
@@ -36,9 +39,9 @@ function NextContentRequest(lastReceivedId)
             GetLastIdInContent(responseStr);
             AddNewContent(responseStr);
         }
-        loadingContent = false;
+        //loadingContent = false;
     };
-    xhttp.open("GET", providerUrl + "request/next/" + lastReceivedId, true);
+    xhttp.open("GET", providerUrl + "request/next/" + (lastReceivedId - 1), true);
     xhttp.send();
 }
 

@@ -101,6 +101,8 @@ function GetNextContent()
 
 function AddNewContent(content)
 {
+    console.log("Received content:");
+    console.log(content);
     document.getElementById('scroll_arrow').style.display = "block";
     if (currentContent == 0)
     {
@@ -115,6 +117,8 @@ function AddNewContent(content)
     {
         document.getElementById('ContentBottom').remove();
     }
+
+    loadingContent = false;
 }
 
 function AddNewPost(content)
