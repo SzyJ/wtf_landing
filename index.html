@@ -40,6 +40,21 @@
                 user-select:none;
             }
 
+            #header_image {
+                width: 270px;
+                height: 270px;
+                margin: 10px auto;
+                padding: 5px;
+                border: lightgray solid 10px;
+            }
+
+            #header_image > img {
+                object-fit:cover;
+                filter: grayscale(0.5);
+                height: 100%;
+                width: 100%;
+            }
+
             #title {
                 position: relative;
                 width: min-content;
@@ -221,11 +236,11 @@
                 }
             }
 
-
             /* Post Styling */
             div#loaded_content.hmm {
                 margin: auto;
-                width: fit-content;
+                width: max-content;
+                width: -moz-fit-content;
             }
 
             div.post {
@@ -500,6 +515,10 @@
     <body>
         <div id="header">
             <div id="all_content">
+                <div id="header_image">
+                    <img src="./header_img.jpg">
+                </div>
+
                 <div id="title">
                     <div id="title_background">design by:<br/>szymon jackiewicz</div>
                     <div id="title_foreground"></div>

@@ -4,6 +4,9 @@
 projects/*/
 projects/*
 
+books/
+sj_logo/
+
 !projects/project_banners
 !projects/project_banners/*.*
 !projects/project_posts
