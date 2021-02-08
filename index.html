@@ -10,240 +10,271 @@
         <!-- Style -->
         <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" type="image/png" href="icon.png"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <link rel="shortcut icon" type="image/png" href="res/icon.png"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
         <style>
-            @font-face {
-                font-family: Empires;
-                src: url("fonts/Empires.otf") format("opentype");
-            }
 
             body {
                 margin: 0;
+                /*background: linear-gradient(0deg, rgb(7, 7, 7) 0%, rgb(4, 4, 4) 25%, rgb(255, 255, 255) 100%);*/
                 background: white;
-                color: #444444;
 
-                transition: 0.3s all;
+                transition: 1s all;
             }
 
             div#header {
-                padding-top: 25vh;
-                height: 50vh;
-                min-height: 25px;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
 
                 animation: fadein 1s;
+
+                z-index: -1;
             }
 
-            #all_content {
-                display: inline;
-                user-select: none;
-            }
-
-            #header_image {
-                width: 270px;
-                height: 270px;
-                margin: 10px auto;
-                padding: 5px;
-                border: lightgray solid 10px;
-            }
-
-            #header_image > img {
-                object-fit:cover;
-                filter: grayscale(0.5);
-                height: 100%;
-                width: 100%;
-            }
-
-            #title {
-                position: relative;
-                width: min-content;
-                margin: 10px auto;
-            }
-
-            #title_foreground {
-                position: absolute;
-                top: -30%;
-                left: 15px;
-                font-family: 'Empires', monospace;
-                font-size: 70pt;
-                color: #444444;
-                width: 300px;
-                text-align: left;
-
-                z-index: 3;
-            }
-
-            #title_background {
-                animation: lightenBackground 2.5s cubic-bezier(0, 0, 0.93, 0.24);
-                background: lightgray;
-                color: white;
-                font-family: 'Major Mono Display', monospace;
-                font-size: 10pt;
-                width: 290px; /* 290 + 5 + 5 = 300px */
-                height: 60px;
-                padding: 5px;
-                font-weight: bold;
-                z-index: 0;
-            }
-
-            #button_container {
+            div.letter_blocks {
                 display: flex;
-                margin: 10px auto;
-                width: 300px;
-                height: max-content;
-            }
-            #button_container .spacer {
-                display: block;
-                width: 6px;
+                width: min-content;
+                margin: auto;
             }
 
-            #button_container a.button {
-                padding: 6px 12px;
-                width: 100%;
-                text-align: center;
-                color: white;
+            div.letter {
+                width: 100px;
+                height: 100px;
+                margin: 5px;
+            }
+
+            div.letter div.spacer_l {
+                margin-left: 2px;
+            }
+
+            div.letter div.spacer_r {
+                margin-right: 2px;
+            }
+
+            div.letter div.spacer_u {
+                margin-top: 2px;
+            }
+
+            div.letter div.spacer_d {
+                margin-bottom: 2px;
+            }
+
+            div.letter div.letter_draw2,
+            div.letter div.letter_draw1 {
+                background-color: black; /* white */
+                border-radius: 15px;
+
+                /* animation: blackToWhite 2s; */
+            }
+
+            /*div.letter div.letter_draw2,
+            div.letter div.letter_draw1 {
+                background-color: white;
+                border-radius: 15px;
+
+                animation: blackToWhite 2s;
+            }*/
+
+            div.letter div.letter_draw1 {
+                flex: 1;
+            }
+
+            div.letter div.letter_draw2 {
+                flex: 2;
+                flex-basis: 4px;
+            }
+
+            div.letter div.letter_blank1 {
+                background-color: transparent;
+                flex: 1;
+            }
+
+            div.letter div.letter_blank2 {
+                background-color: transparent;
+                flex: 2;
+                flex-basis: 4px;
+            }
+
+            div.letter {
+                display: flex;
+                flex-direction: column;
+            }
+
+            div.col {
                 flex: 1;
 
-                transition: 0.3s all;
-
-                background: lightgray;
-
-                font-size: 15pt;
-                overflow: hidden;
-                white-space: nowrap;
-
-                font-family: 'Major Mono Display', monospace;
-                text-decoration: none;
+                display: flex;
+                flex-direction: column;
             }
 
-            #button_container a.button:hover {
-                flex: 6;
+            div.letter > div.row1 {
+                flex: 1;
+
+                display: flex;
+                flex-direction: row;
+            }
+
+            div.letter > div.row2 {
+                flex: 2;
+                flex-basis: 4px;
+
+                display: flex;
+                flex-direction: row;
+            }
+
+            #background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 0vh;
+                z-index: -2;
+
+                overflow: hidden;
+
+                /* animation: showBackground 2s cubic-bezier(.77,0,.18,1); */
+            }
+
+            #background > img {
+                height: 100vh;
+                width:100vw;
+
+                filter: grayscale(0.3) brightness(0.5);
+                object-fit: cover;
+            }
+
+            #content {
+                padding: 50px 0px;
+                width: 100%;
+                min-width: -moz-fit-content;
+                min-width: fit-content;
+                min-height: 100vh;
+                background-color: white;
+                margin-top: 100vh;
+            }
+
+            #content .container {
+                font-family: 'Poppins', sans-serif;
+                font-size: 20px;
+
+                max-width: 1000px;
+                width: 75vw;
+                margin: auto;
+            }
+            
+            #content .container .title {
+                font-family: 'DM Serif Display', serif;
+
+                text-align: center;
+                font-size: 50pt;
+            }
+
+            .button_container {
+                margin-top: 100vh;
+                padding: 15px;
+                width: max-content;
+                
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+
+            .slide_button {
+                font-family: 'Poppins', sans-serif;
+                font-size: 20px;
+                display: inline-flex;
+                width: 250px;
+                background-color: lightgray;
+            }
+
+            .slide_button .button_icon {
+                flex: 1;
+                margin: auto;
+                text-align: center;
+                overflow: hidden;
+                transition: 0.3s all;
+                white-space: nowrap;
+                padding: 15px;
+                user-select: none;
+                cursor: default;
+            }
+
+            .slide_button .button_value {
+                flex: 0;
+                margin: auto;
+                overflow: hidden;
+                text-align: center;
+                transition: 0.3s all;
+                white-space: nowrap;
+                
+            }
+
+            .slide_button:hover .button_value {
+                flex: 8;
+                padding: 15px;
+            }
+
+            .discord_color {
+                background-color: #738ADB;
+                color: white;
+            }
+
+            .portfolio_color {
+                background-color: #444444;
+                color: white;
+            }
+
+            .selectable {
+                user-select: all;
+            }
+
+            ::selection {
+                background-color: rgb(255, 209, 123);
                 color: #444444;
             }
 
-            #button_container a.button:not(.selected):hover {
-                cursor: pointer;
+            ::-moz-selection {
+                background-color: rgb(255, 209, 123);
+                color: #444444;
             }
 
-            #button_container > a.button.selected {
-                background-color: #444444;
-                color: white;
-                flex: 10;
-            }
-
-            #button_container > a#proj_button:hover::after,
-            #button_container > a#proj_button.selected::after {
-                content: " projects";
-            }
-
-            #button_container > a#hmm_button:hover::after,
-            #button_container > a#hmm_button.selected::after {
-                content: " hmm...";
-            }
-
-            #quick_links {
-               width: 100%;
-               text-align: center;
-               margin-top: 150px;
-               background-color: #ffffff40;
-            }
-
-            #quick_links i.fa {
-               text-decoration: none;
-               padding: 5px;
-               font-size: 20pt;
-               color: lightgray;
-            }
-
-            #quick_links i.fa:hover {
-               color: #444444;
-            }
-
-            p#tooltip {
-               font-family: 'VT323', monospace;
-               font-size: 15pt;
-               color: lightgray;
-               padding: 0;
-               margin: 0;
-            }
-
-            #scroll_arrow {
-                display: none;
-                width: 100%;
-                height: 70px;
-            }
-            .arrow {
-                position: relative;
-                left: 50%;
-            }
-
-            .arrow:before {
-                position: absolute;
-                left: 50%;
-            }
-
-            .arrow{
-                width: 40px;
-                height: 40px;
-                top: 50%;
-                margin: -20px 0 0 -20px;
-                -webkit-transform: rotate(45deg);
-                border-left: none;
-                border-top: none;
-                border-right: 2px #444444 solid;
-                border-bottom: 2px #444444 solid;
-            }
-
-            .arrow:before {
-                content: '';
-                width: 20px;
-                height: 20px;
-                top: 50%;
-                margin: -10px 0 0 -10px;
-                border-left: none;
-                border-top: none;
-                border-right: 1px #444444 solid;
-                border-bottom: 1px #444444 solid;
-                animation-duration: 2s;
-                animation-iteration-count: infinite;
-                animation-name: arrow;
-            }
-            
-            @keyframes arrow {
-                0% { 
-                    opacity: 1;
+            @keyframes showBackground {
+                0% {
+                    height: 0vh;
                 }
                 100% {
-                    opacity: 0;
-                    transform: translate(-10px, -10px);
+                    height: 100vh;
                 }
             }
 
-            @keyframes lightenBackground {
-                from {
-                    background: #444444;
-                } to {
-                    background: lightgray;
+            @keyframes blackToWhiteBG {
+                0% {
+                    background-color: black;
+                }
+                100% {
+                    background-color: white;
                 }
             }
 
-            @keyframes fadein {
-                from {
-                    opacity: 0;
-                } to {
-                    opacity: 1;
+            @keyframes blackToWhite {
+                0% {
+                    color: black;
+                }
+                100% {
+                    color: white;
                 }
             }
 
-            /* Post Styling */
+            /* Begin Post style */
             div#loaded_content.hmm {
                 margin: auto;
                 width: fit-content;
                 width: -moz-fit-content;
+                margin-bottom: 15vh;
             }
 
-            div.post {
+            div.post,
+            .container {
                 width: auto;
                 min-height: 50vh;
                 min-width: 450px;
@@ -321,125 +352,48 @@
                 max-height: 100em;
                 color: black;
             }
+            /* End Post style */
 
+            /* Begin Scroll Arrow */
+            #scroll_arrow {
+                position: fixed;
+                top: 95%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-100%);
+                opacity: 0.5;
 
-            /* Project Styling */
-            div#loaded_content.project {
-                padding: 0 0 50vh 0;
-                font-family: 'Montserrat', sans-serif;
-                width: 100%;
-                max-width: 1006pt;
-                margin: auto;
+                z-index: -1;
             }
 
-            .project {
-                padding: 0 5%;
-                text-align: justify;
-
-                min-height: 500px;
-                overflow: hidden;
-                transition: 0.4s opacity;
+            .arrow > i {
+                color: black;
             }
 
-            div.project .title {
-                font-family: 'Major Mono Display', monospace;
+            .arrow {
+              text-align: center;
+              margin: 8% 0;
+            }
+            .bounce {
                 
-                font-weight: normal;
-                position: relative;
-                width: min-content;
-                margin: 50px auto;
-
-                font-size: 30pt;
+              -moz-animation: bounce 6s 5s infinite;
+              -webkit-animation: bounce 6s 5s infinite;
+              animation: bounce 6s 5s infinite;
             }
-
-            div.project ul.link_list {
-                margin: 40px 5px;
-                height: min-content;
-                list-style-type: none;
-                padding: 0;
-                display: inline-block;
-                width: 100%;
+            
+            @keyframes bounce {
+              0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+              }
+              45% {
+                transform: translateY(-30px);
+              }
+              55% {
+                transform: translateY(-15px);
+              }
             }
+            /* End Scroll Arrow */
 
-            div.project > .left_content > ul.link_list,
-            div.project > .right_content > ul.link_list {
-                margin: 5px;
-            }
-
-            div.project > .left_content > ul.link_list > li,
-            div.project > .right_content > ul.link_list > li {
-                float: left;
-            }
-
-            div.project ul.link_list li {
-                opacity: 50%;
-                font-size: 15pt;
-                padding: 10px 20px;
-                margin: 5px;
-                border: 3px solid;
-                width: max-content;
-                float: right;
-            }
-
-            div.project ul.link_list li:hover {
-                opacity: 100%;
-            }
-
-            div.project ul.link_list li a {
-                color: inherit;
-                text-decoration: none;
-                text-emphasis: bold;
-            }
-
-
-            div.project .left_content {
-                float: left;
-                width: 45%;
-                /* min-height: 100vh; */
-            }
-
-            div.project .right_content {
-                float: right;
-                width: 45%;
-                /* min-height: 100vh; */
-            }
-
-            div.project .large_text {
-                font-size: 30pt;
-                text-align: left;
-            }
-
-            .hmm_color {
-                background-color: #2c3d55;
-                color: #F3F3F4;
-            }
-
-            .gnat_color {
-                background-color: #cc6e7e;
-                color: #eee3cd;
-            }
-
-            .midori_color {
-                background-color: #c5e0b4;
-                color: #444444;
-            }
-
-            .flip_color {
-                background-color: #3e2909;
-                color: #ef5350;
-            }
-
-            .wintui_color {
-                background-color: black;
-                color: white;
-            }
-
-            .other_proj_color {
-                background-color: #4f585e;
-                color: white;
-            }
-
-            /* Loader code begin */
+            /* Begin Loader code */
             /* https://projects.lukehaas.me/css-loaders/ */
             .loader,
             .loader:before,
@@ -498,57 +452,131 @@
                 box-shadow: 0 2.5em 0 0;
               }
             }
-            /* Loader code end */
+            /* End Loader code */
         </style>
 
-        <!-- Logic -->
 
-        <!-- Animations and Style -->
-        <script src="javascript/type.js"></script>
-        <script src="javascript/quick_links.js"></script>
-        <script src="javascript/bg_fade.js"></script>
         <!-- Content Loading -->
-        <script src="javascript/content/requester.js"></script>
-        <script src="javascript/content/main.js"></script>
+        <script src="js/content/requester.js"></script>
+        <script src="js/content/main.js"></script>
     </head>
 
     <body>
+        <!--video autoplay muted loop id="background">
+            <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+        </video-->
+
+        <div id="background">
+            <img id="background_image" src="https://szy.wtf/projects/example_site2/res/bg.jpg">
+        </div>
+
         <div id="header">
-            <div id="all_content">
-                <div id="header_image">
-                    <img src="./header_img.jpg">
+            <div class="letter_blocks">
+                <div class="letter letter_s">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="letter_draw1 spacer_u spacer_d"></div>
+                    <div class="letter_draw1 spacer_u"></div>
                 </div>
-
-                <div id="title">
-                    <div id="title_background">design by:<br/>szymon jackiewicz</div>
-                    <div id="title_foreground"></div>
+                <div class="letter letter_z">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="letter_draw1 spacer_u"></div>
                 </div>
+                <div class="letter letter_y">
 
-                <div id="button_container">
-                    <a onclick="ResetContent(0)" id="proj_button" class="button"><i class="fa fa-briefcase"></i></a>
-                    <div class="spacer"></div>
-                    <a onclick="ResetContent(1)" id="home_button" class="button selected">welcome</a>
-                    <div class="spacer"></div>
-                    <a onclick="ResetContent(2)" id="hmm_button" class="button"><i class="fa fa-cloud"></i></a>
+                    <div class="row1">
+                        <div class="col spacer_r">
+                            <div class="letter_draw1 spacer_d"></div>
+                            <div class="letter_blank1 spacer_u"></div>
+                        </div>
+                        <div class="col spacer_l spacer_r">
+                            <div class="letter_blank1 spacer_d"></div>
+                            <div class="letter_draw2 spacer_u"></div>
+                        </div>
+                        <div class="col spacer_l">
+                            <div class="letter_draw1 spacer_d"></div>
+                            <div class="letter_blank1 spacer_u"></div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div id="quick_links">
-                    <p id ="tooltip">quick links</p>
-                    <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf" target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
-                    <a href="mailto:szy.jackiewicz@gmail.com" onmouseover="setTooltipText('email me!')" onmouseout="resetTooltip()"><i class="fa fa-envelope"></i></a>
-                    <a href="https://github.com/SzyJ" onmouseover="setTooltipText('my projects repo')" onmouseout="resetTooltip()"><i class="fa fa-github"></i></a>
-                    <a href="https://szy.wtf/projects/flip/" onmouseover="setTooltipText('play a game')" onmouseout="resetTooltip()"><i class="fa fa-gamepad"></i></a>
-                    <a href="https://szy.wtf/projects/cmd/" onmouseover="setTooltipText('open terminal')" onmouseout="resetTooltip()"><i class="fa fa-terminal"></i></a>
+            <div class="letter_blocks">
+                <div class="letter "></div>
+            </div>
+
+            <div class="letter_blocks">
+                <div class="letter letter_w">
+                    <div class="row1">
+                        <div class="letter_draw1 spacer_r"></div>
+                        <div class="col spacer_l spacer_r">
+                            <div class="letter_blank1 spacer_d"></div>
+                            <div class="letter_draw2 spacer_u"></div>
+                        </div>
+                        <div class="letter_draw1 spacer_l"></div>
+                    </div>
                 </div>
-
-                <div id="scroll_arrow">
-                    <div class="arrow"></div>
+                <div class="letter letter_t">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="row2 spacer_u">
+                        <div class="letter_blank1 spacer_r"></div>
+                        <div class="letter_draw1 spacer_l spacer_r"></div>
+                        <div class="letter_blank1 spacer_l"></div>
+                    </div>
+                </div>
+                <div class="letter letter_f">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="row1 spacer_u spacer_d">
+                        <div class="letter_draw2"></div>
+                        <div class="letter_blank1"></div>
+                    </div>
+                    <div class="row1 spacer_u">
+                        <div class="letter_draw1 spacer_r"></div>
+                        <div class="letter_blank2 spacer_l"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="loaded_content" class="hmm">
+        <div id="scroll_arrow">
+            <div class="arrow bounce">
+                <i class="fa fa-arrow-circle-down fa-2x"></i>
+            </div>
         </div>
 
+        <!--div class="button_container">
+
+            <div class="slide_button">
+                <div class="button_icon discord_color">
+                    <i class="fa fa-discord"></i> DM me on Discord
+                </div>
+                <span class="button_value selectable">Szy#5153</span>
+            </div>
+
+            <div class="slide_button">
+                <div class="button_icon portfolio_color">
+                    <i class="fa fa-briefcase"></i> Portfolio
+                </div>
+                <a class="button_value" href="#">Go to site</a>
+            </div>
+
+        </div-->
+
+        <div id="content">
+
+            <div class="container">
+                <h1 class="title">
+                    Hey, I made this because fuck Facebook
+                </h1>
+                <p>
+
+                </p>
+
+
+            </div>
+
+            <div id="loaded_content" class="hmm">
+                <div id="ContentBottom" class="loader"></div>
+            </div>
+        </div>
     </body>
 </html>
