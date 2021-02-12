@@ -162,6 +162,7 @@
                 max-width: 1000px;
                 width: 75vw;
                 margin: auto;
+                text-align: center;
             }
             
             #content .container .title {
@@ -172,10 +173,9 @@
             }
 
             .button_container {
-                margin-top: 100vh;
+                margin: 0 auto;
                 padding: 15px;
                 width: max-content;
-                
                 background-color: rgba(255, 255, 255, 0.5);
             }
 
@@ -184,7 +184,14 @@
                 font-size: 20px;
                 display: inline-flex;
                 width: 250px;
-                background-color: lightgray;
+                height: 50px;
+                color: black;
+                transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
+                border-radius: 5px;
+            }
+
+            .slide_button:hover {
+                box-shadow: 0px 0px 20px 5px lightgray;
             }
 
             .slide_button .button_icon {
@@ -197,6 +204,11 @@
                 padding: 15px;
                 user-select: none;
                 cursor: default;
+            }
+
+            .slide_button a.button_value {
+                text-decoration: none;
+                color: black;
             }
 
             .slide_button .button_value {
@@ -212,6 +224,10 @@
             .slide_button:hover .button_value {
                 flex: 8;
                 padding: 15px;
+            }
+
+            .content_button_color {
+                color: black;
             }
 
             .discord_color {
@@ -543,34 +559,40 @@
             </div>
         </div>
 
-        <!--div class="button_container">
-
-            <div class="slide_button">
-                <div class="button_icon discord_color">
-                    <i class="fa fa-discord"></i> DM me on Discord
-                </div>
-                <span class="button_value selectable">Szy#5153</span>
-            </div>
-
-            <div class="slide_button">
-                <div class="button_icon portfolio_color">
-                    <i class="fa fa-briefcase"></i> Portfolio
-                </div>
-                <a class="button_value" href="#">Go to site</a>
-            </div>
-
-        </div-->
 
         <div id="content">
 
             <div class="container">
                 <h1 class="title">
-                    Hey, I made this because fuck Facebook
+                    Hey.
                 </h1>
                 <p>
-
+                    The internet has become bloated with malicious tracking. Let's decentralise it and not abuse cookies to compromise everyone's privacy! If you want help setting up / designing a website for yourself, let me know. No promises but I strongly believe in a decentralised internet and I am willing to help you set up and manage your own website.
+                    <br>
+                    Control what you share publically and dont let companies profit off of collecting your information.
+                    <br>
+                    <br>
+                    Hit me up.
                 </p>
 
+                
+        <div class="button_container">
+
+            <div class="slide_button">
+                <div class="button_icon content_button_color">
+                    <i class="fa fa-discord"></i>
+                </div>
+                <span class="button_value selectable">Szy#5153</span>
+            </div>
+
+            <div class="slide_button">
+                <div class="button_icon content_button_color">
+                    <i class="fa fa-briefcase"></i>
+                </div>
+                <a class="button_value" href="https://szy.wtf/projects/todo/">Portfolio site [old]</a>
+            </div>
+
+        </div>
 
             </div>
 
