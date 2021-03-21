@@ -16,31 +16,31 @@ const COLOR_TRANSITION_CSS = `
 window.onscroll = function()
 {
     GetNextContent();
-    UpdateHeaderAnimation();
+    //UpdateHeaderAnimation();
 };
 
 window.onload = function()
 {
     // Preload images
-    let img = document.createElement('img');
-    // Animate image in
-    img.onload = function () {
-        console.log("Pre-loaded image");
-        document.getElementById("background").style.animation = "showBackground 2s cubic-bezier(.77,0,.18,1)";
-        document.getElementById("background").style.height = "100vh";
-        document.body.style.background = "white";
-
-        var styleSheet = document.createElement("style");
-        styleSheet.type = "text/css";
-        styleSheet.innerText = COLOR_TRANSITION_CSS;
-        document.head.appendChild(styleSheet);
-    };
-    // Simple backgorund with no res dependencies
-    img.onerror = function () {
-        document.getElementById("background").style.height = "100vh";
-        document.getElementById("background_image").style.display = "none";
-    };
-    img.src = 'https://szy.wtf/projects/example_site2/res/bg.jpg';
+    //let img = document.createElement('img');
+    //// Animate image in
+    //img.onload = function () {
+    //    console.log("Pre-loaded image");
+    //    document.getElementById("background").style.animation = "showBackground 2s cubic-bezier(.77,0,.18,1)";
+    //    document.getElementById("background").style.height = "100vh";
+    //    document.body.style.background = "white";
+//
+    //    var styleSheet = document.createElement("style");
+    //    styleSheet.type = "text/css";
+    //    styleSheet.innerText = COLOR_TRANSITION_CSS;
+    //    document.head.appendChild(styleSheet);
+    //};
+    //// Simple backgorund with no res dependencies
+    //img.onerror = function () {
+    //    document.getElementById("background").style.height = "100vh";
+    //    document.getElementById("background_image").style.display = "none";
+    //};
+    //img.src = 'https://szy.wtf/projects/example_site2/res/bg.jpg';
 
     // Load Content
     ResetContent();

@@ -13,7 +13,6 @@
         <link rel="shortcut icon" type="image/png" href="res/icon.png"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
         <style>
-
             body {
                 margin: 0;
                 /*background: linear-gradient(0deg, rgb(7, 7, 7) 0%, rgb(4, 4, 4) 25%, rgb(255, 255, 255) 100%);*/
@@ -23,14 +22,16 @@
             }
 
             div#header {
+                display: flex;
                 position: fixed;
-                top: 50%;
+                top: 0%;
                 left: 50%;
-                transform: translateX(-50%) translateY(-50%);
-
+                transform: translateX(-50%);
                 animation: fadein 1s;
-
                 z-index: -1;
+                width: 100%;
+                margin: 50px auto;
+                max-width: 1000px;
             }
 
             div.letter_blocks {
@@ -124,19 +125,6 @@
                 flex-direction: row;
             }
 
-            #background {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 0vh;
-                z-index: -2;
-
-                overflow: hidden;
-
-                /* animation: showBackground 2s cubic-bezier(.77,0,.18,1); */
-            }
-
             #background > img {
                 height: 100vh;
                 width:100vw;
@@ -152,7 +140,7 @@
                 min-width: fit-content;
                 min-height: 100vh;
                 background-color: white;
-                margin-top: 100vh;
+                margin-top: 210px;
             }
 
             #content .container {
@@ -281,6 +269,49 @@
                 }
             }
 
+            /* Begin Header Background style */
+            #background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 210px;
+                z-index: -2;
+
+                overflow: hidden;
+
+                opacity: 0.1;
+
+                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+                background-size: 1800% 1800%;
+                -webkit-animation: rainbow 18s ease infinite;
+                -z-animation: rainbow 18s ease infinite;
+                -o-animation: rainbow 18s ease infinite;
+                animation: rainbow 18s ease infinite;
+            }
+
+            @-webkit-keyframes rainbow {
+                0%{background-position:0% 82%}
+                50%{background-position:100% 19%}
+                100%{background-position:0% 82%}
+            }
+            @-moz-keyframes rainbow {
+                0%{background-position:0% 82%}
+                50%{background-position:100% 19%}
+                100%{background-position:0% 82%}
+            }
+            @-o-keyframes rainbow {
+                0%{background-position:0% 82%}
+                50%{background-position:100% 19%}
+                100%{background-position:0% 82%}
+            }
+            @keyframes rainbow { 
+                0%{background-position:0% 82%}
+                50%{background-position:100% 19%}
+                100%{background-position:0% 82%}
+            }
+            /* End Header Background style */
+
             /* Begin Post style */
             div#loaded_content.hmm {
                 margin: auto;
@@ -371,7 +402,7 @@
             /* End Post style */
 
             /* Begin Scroll Arrow */
-            #scroll_arrow {
+            /*#scroll_arrow {
                 position: fixed;
                 top: 95%;
                 left: 50%;
@@ -406,7 +437,7 @@
               55% {
                 transform: translateY(-15px);
               }
-            }
+            }*/
             /* End Scroll Arrow */
 
             /* Begin Loader code */
@@ -471,7 +502,6 @@
             /* End Loader code */
         </style>
 
-
         <!-- Content Loading -->
         <script src="js/content/requester.js"></script>
         <script src="js/content/main.js"></script>
@@ -482,9 +512,7 @@
             <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
         </video-->
 
-        <div id="background">
-            <img id="background_image" src="https://szy.wtf/projects/example_site2/res/bg.jpg">
-        </div>
+        <div id="background"></div>
 
         <div id="header">
             <div class="letter_blocks">
@@ -553,47 +581,52 @@
             </div>
         </div>
 
-        <div id="scroll_arrow">
+        <!--div id="scroll_arrow">
             <div class="arrow bounce">
                 <i class="fa fa-arrow-circle-down fa-2x"></i>
             </div>
-        </div>
+        </div-->
 
 
         <div id="content">
 
             <div class="container">
-                <h1 class="title">
-                    Hey.
-                </h1>
-                <p>
-                    The internet has become bloated with malicious tracking. Let's decentralise it and not abuse cookies to compromise everyone's privacy! If you want help setting up / designing a website for yourself, let me know. No promises but I strongly believe in a decentralised internet and I am willing to help you set up and manage your own website.
-                    <br>
-                    Control what you share publically and dont let companies profit off of collecting your information.
-                    <br>
-                    <br>
+                <h1 class="title">Hey.</h1>
+                <!--p>
                     Hit me up.
-                </p>
+                </p-->
 
+                <div class="button_container">
+                    <div class="slide_button">
+                        <div class="button_icon content_button_color">
+                            <i class="fa fa-discord"></i>
+                        </div>
+                        <span class="button_value selectable">Szy#5153</span>
+                    </div>
                 
-        <div class="button_container">
+                    <div class="slide_button">
+                        <div class="button_icon content_button_color">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <span class="button_value selectable">szy.jackiewicz@gmail.com</span>
+                    </div>
 
-            <div class="slide_button">
-                <div class="button_icon content_button_color">
-                    <i class="fa fa-discord"></i>
+                    <br>
+
+                    <div class="slide_button">
+                        <div class="button_icon content_button_color">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <a class="button_value" href="https://szy.wtf/projects/todo/">Portfolio site [old]</a>
+                    </div>
+                
+                    <div class="slide_button">
+                        <div class="button_icon content_button_color">
+                            <i class="fa fa-car"></i>
+                        </div>
+                        <a class="button_value" href="https://szy.wtf/projects/350z/">Car maintenance</a>
+                    </div>
                 </div>
-                <span class="button_value selectable">Szy#5153</span>
-            </div>
-
-            <div class="slide_button">
-                <div class="button_icon content_button_color">
-                    <i class="fa fa-briefcase"></i>
-                </div>
-                <a class="button_value" href="https://szy.wtf/projects/todo/">Portfolio site [old]</a>
-            </div>
-
-        </div>
-
             </div>
 
             <div id="loaded_content" class="hmm">
