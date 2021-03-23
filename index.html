@@ -29,7 +29,6 @@
                 transform: translateX(-50%);
                 animation: fadein 1s;
                 z-index: -1;
-                width: 100%;
                 margin: 50px auto;
                 max-width: 1000px;
             }
@@ -37,7 +36,6 @@
             div.letter_blocks {
                 display: flex;
                 width: min-content;
-                margin: auto;
             }
 
             div.letter {
@@ -64,7 +62,7 @@
 
             div.letter div.letter_draw2,
             div.letter div.letter_draw1 {
-                background-color: black; /* white */
+                background-color: white;/* rgb(185, 0, 52); */
                 border-radius: 15px;
 
                 /* animation: blackToWhite 2s; */
@@ -126,10 +124,9 @@
             }
 
             #background > img {
-                height: 100vh;
-                width:100vw;
-
-                filter: grayscale(0.3) brightness(0.5);
+                height: 100%;
+                width: 100vw;
+                filter: grayscale(0.3);
                 object-fit: cover;
             }
 
@@ -277,10 +274,8 @@
                 width: 100vw;
                 height: 210px;
                 z-index: -2;
-
+                filter: brightness(0.2);
                 overflow: hidden;
-
-                opacity: 0.1;
 
                 background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
                 background-size: 1800% 1800%;
