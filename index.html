@@ -130,14 +130,59 @@
                 object-fit: cover;
             }
 
+            #nav_buttons {
+                background-color: rgba(255, 255, 255, 0.6);
+                height: 50px;
+                width: 100%;
+                margin-top: 210px;
+                align-content: center;
+                min-width: 1000px;
+            }
+
+            #nav_buttons .flex_buttons {
+                width:fit-content;
+                width: -moz-fit-content;
+                margin: auto;
+            }
+
+            #contact_banner {
+                background-color: rgba(255, 255, 255, 0.8);
+                height: 50px;
+                width: 100%;
+                align-content: center;
+                font-family: 'Poppins', sans-serif;
+                font-size: 20px;
+                align-items: center;
+                display: grid;
+            }
+
+            #contact_banner .flex_buttons {
+                width: 1000px;
+                margin: auto;
+                display: inline-flex;
+                height: 100%;
+
+            }
+            .contact_info {
+                height: min-content;
+                width: fit-content;
+                width: -moz-fit-content;
+                margin: auto 0;
+                flex: 1;
+                text-align: center;
+                display: inline;
+            }
+            
+            .contact_info i {
+                margin: 0 10px;
+            }
+
             #content {
-                padding: 50px 0px;
                 width: 100%;
                 min-width: -moz-fit-content;
                 min-width: fit-content;
                 min-height: 100vh;
                 background-color: white;
-                margin-top: 210px;
             }
 
             #content .container {
@@ -171,12 +216,12 @@
                 width: 250px;
                 height: 50px;
                 color: black;
-                transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
-                border-radius: 5px;
+                /*transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
+                border-radius: 5px;*/
             }
 
             .slide_button:hover {
-                box-shadow: 0px 0px 20px 5px lightgray;
+                /* box-shadow: 0px 0px 20px 5px lightgray;*/
             }
 
             .slide_button .button_icon {
@@ -186,7 +231,6 @@
                 overflow: hidden;
                 transition: 0.3s all;
                 white-space: nowrap;
-                padding: 15px;
                 user-select: none;
                 cursor: default;
             }
@@ -207,8 +251,10 @@
             }
 
             .slide_button:hover .button_value {
-                flex: 8;
-                padding: 15px;
+                flex: 1;
+            }
+            .slide_button:hover .button_icon {
+                flex: 0;
             }
 
             .content_button_color {
@@ -272,7 +318,7 @@
                 top: 0;
                 left: 0;
                 width: 100vw;
-                height: 210px;
+                height: 260px;
                 z-index: -2;
                 filter: brightness(0.2);
                 overflow: hidden;
@@ -583,15 +629,46 @@
         </div-->
 
 
+        <div id="nav_buttons">
+            <div class="flex_buttons">
+                <div class="slide_button">
+                    <div class="button_icon content_button_color">
+                        <i class="fa fa-spoon"></i>
+                    </div>
+                    <a class="button_value" href="#">Recepies</a>
+                </div>
+
+                <div class="slide_button">
+                    <div class="button_icon content_button_color">
+                        <i class="fa fa-briefcase"></i>
+                    </div>
+                    <a class="button_value" href="https://szy.wtf/projects/todo/">Portfolio site [old]</a>
+                </div>
+
+                <div class="slide_button">
+                    <div class="button_icon content_button_color">
+                        <i class="fa fa-car"></i>
+                    </div>
+                    <a class="button_value" href="https://szy.wtf/projects/350z/">Car maintenance</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="contact_banner">
+            <div class="flex_buttons">
+                <span class="contact_info"><i class="fa fa-discord"></i><span class="selectable">Szy#5153</span></span>
+                <span class="contact_info"><i class="fa fa-envelope"></i><span class="selectable">szy.jackiewicz@gmail.com</span></span>
+            </div>
+        </div>
         <div id="content">
 
             <div class="container">
                 <h1 class="title">Hey.</h1>
-                <!--p>
-                    Hit me up.
-                </p-->
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas diam velit, condimentum a orci a, laoreet scelerisque libero. Aliquam justo turpis, ultrices ut mollis et, placerat ut sem. Praesent rhoncus libero mauris, nec accumsan justo congue at. Vestibulum viverra porta eros sit amet venenatis. Nunc eu lobortis libero, at porta velit. Vivamus quis sem sed purus ullamcorper egestas a sit amet justo. Vestibulum risus odio, scelerisque eu maximus ac, rhoncus eu augue. In et nunc in sapien rhoncus pellentesque. Suspendisse porta neque sit amet vestibulum accumsan. Nulla sodales risus ut orci ullamcorper, ac fermentum neque dapibus. Nam placerat mauris ac mi dictum, quis dictum ipsum pharetra. Aliquam erat volutpat. Vestibulum eu dictum diam.
+                </p>
 
-                <div class="button_container">
+                <!--div class="button_container">
                     <div class="slide_button">
                         <div class="button_icon content_button_color">
                             <i class="fa fa-discord"></i>
@@ -621,7 +698,7 @@
                         </div>
                         <a class="button_value" href="https://szy.wtf/projects/350z/">Car maintenance</a>
                     </div>
-                </div>
+                </div-->
             </div>
 
             <div id="loaded_content" class="hmm">
