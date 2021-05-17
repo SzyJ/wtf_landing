@@ -4,7 +4,7 @@ var lastResponseId = -1;
 const HMM_URL = "https://szy.wtf/sslapi/hmm-wtf/";
 const PROJ_URL = "https://szy.wtf/sslapi/hmm-projects/";
 
-var providerUrl;
+var providerUrl = PROJ_URL;
 
 function InitialContentRequest()
 {

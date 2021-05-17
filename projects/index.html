@@ -19,6 +19,102 @@
                 src: url("fonts/Empires.otf") format("opentype");
             }
 
+            div#header {
+                animation: fadein 1s;
+
+                z-index: -1;
+            }
+
+            div.letter_blocks {
+                display: flex;
+                width: min-content;
+                margin: auto;
+            }
+
+            div.letter {
+                width: 100px;
+                height: 100px;
+                margin: 5px;
+            }
+
+            div.letter div.spacer_l {
+                margin-left: 2px;
+            }
+
+            div.letter div.spacer_r {
+                margin-right: 2px;
+            }
+
+            div.letter div.spacer_u {
+                margin-top: 2px;
+            }
+
+            div.letter div.spacer_d {
+                margin-bottom: 2px;
+            }
+
+            div.letter div.letter_draw2,
+            div.letter div.letter_draw1 {
+                background-color: #444444; /* white */
+                border-radius: 15px;
+
+                /* animation: blackToWhite 2s; */
+            }
+
+            /*div.letter div.letter_draw2,
+            div.letter div.letter_draw1 {
+                background-color: white;
+                border-radius: 15px;
+                animation: blackToWhite 2s;
+            }*/
+
+            div.letter div.letter_draw1 {
+                flex: 1;
+            }
+
+            div.letter div.letter_draw2 {
+                flex: 2;
+                flex-basis: 4px;
+            }
+
+            div.letter div.letter_blank1 {
+                background-color: transparent;
+                flex: 1;
+            }
+
+            div.letter div.letter_blank2 {
+                background-color: transparent;
+                flex: 2;
+                flex-basis: 4px;
+            }
+
+            div.letter {
+                display: flex;
+                flex-direction: column;
+            }
+
+            div.col {
+                flex: 1;
+
+                display: flex;
+                flex-direction: column;
+            }
+
+            div.letter > div.row1 {
+                flex: 1;
+
+                display: flex;
+                flex-direction: row;
+            }
+
+            div.letter > div.row2 {
+                flex: 2;
+                flex-basis: 4px;
+
+                display: flex;
+                flex-direction: row;
+            }
+
             body {
                 margin: 0;
                 background: white;
@@ -33,6 +129,11 @@
                 min-height: 25px;
 
                 animation: fadein 1s;
+            }
+
+            h1#title {
+                text-align: center;
+                font-family: 'VT323', monospace;
             }
 
             #all_content {
@@ -236,93 +337,6 @@
                 }
             }
 
-            /* Post Styling */
-            div#loaded_content.hmm {
-                margin: auto;
-                width: fit-content;
-                width: -moz-fit-content;
-            }
-
-            div.post {
-                width: auto;
-                min-height: 50vh;
-                min-width: 450px;
-                max-width: 80.9vh;
-
-                margin: 25px;
-                padding: 25px;
-                background: white;
-                border-radius: 5px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-
-                transition: box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            div.post:nth-child(odd) {
-                padding-right: 175px;
-            }
-
-            div.post:nth-child(even) {
-                padding-left: 175px;
-            }
-
-            div.post:nth-child(even) h3 {
-                text-align: right;
-            }
-
-            div.post h3 {
-                font-family: 'DM Serif Display', serif;
-                font-style: italic;
-                font-size: 60px;
-
-                margin: 0;
-                display: block;
-                height: max-content;
-            }
-
-            div.post p.date {
-                font-family: 'DM Serif Display', serif;
-                color: #84828f;
-                margin-top: 0;
-            }
-
-            div.post:nth-child(even) p.date {
-                text-align: right;
-            }
-
-            div.post:nth-child(odd) p.date {
-                text-align: left;
-            }
-
-            div.post p {
-                font-family: 'Poppins', sans-serif;
-                font-size: 20px;
-
-                margin: 20px 60px;
-                display: block;
-
-                color: #444444;
-                /* Text truncation */
-                line-height: 1.6;
-                max-height: 4.0em; /* 2.5*lineHeight */
-                overflow: hidden;
-
-                transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            div.post:hover {
-                box-shadow: 0px 0px 20px 5px lightgray;
-            }
-
-            div.post:hover p {
-                /* For transitions to work correctly, we need to decide on a max number of lines allowed */
-                max-height: 100em;
-                color: black;
-            }
-
-
             /* Project Styling */
             div#loaded_content.project {
                 padding: 0 0 50vh 0;
@@ -330,6 +344,7 @@
                 width: 100%;
                 max-width: 1006pt;
                 margin: auto;
+                
             }
 
             .project {
@@ -514,24 +529,71 @@
 
     <body>
         <div id="header">
+            <div class="letter_blocks">
+                <div class="letter letter_s">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="letter_draw1 spacer_u spacer_d"></div>
+                    <div class="letter_draw1 spacer_u"></div>
+                </div>
+                <div class="letter letter_z">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="letter_draw1 spacer_u"></div>
+                </div>
+                <div class="letter letter_y">
+
+                    <div class="row1">
+                        <div class="col spacer_r">
+                            <div class="letter_draw1 spacer_d"></div>
+                            <div class="letter_blank1 spacer_u"></div>
+                        </div>
+                        <div class="col spacer_l spacer_r">
+                            <div class="letter_blank1 spacer_d"></div>
+                            <div class="letter_draw2 spacer_u"></div>
+                        </div>
+                        <div class="col spacer_l">
+                            <div class="letter_draw1 spacer_d"></div>
+                            <div class="letter_blank1 spacer_u"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="letter_blocks">
+                <div class="letter "></div>
+            </div>
+
+            <div class="letter_blocks">
+                <div class="letter letter_w">
+                    <div class="row1">
+                        <div class="letter_draw1 spacer_r"></div>
+                        <div class="col spacer_l spacer_r">
+                            <div class="letter_blank1 spacer_d"></div>
+                            <div class="letter_draw2 spacer_u"></div>
+                        </div>
+                        <div class="letter_draw1 spacer_l"></div>
+                    </div>
+                </div>
+                <div class="letter letter_t">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="row2 spacer_u">
+                        <div class="letter_blank1 spacer_r"></div>
+                        <div class="letter_draw1 spacer_l spacer_r"></div>
+                        <div class="letter_blank1 spacer_l"></div>
+                    </div>
+                </div>
+                <div class="letter letter_f">
+                    <div class="letter_draw1 spacer_d"></div>
+                    <div class="row1 spacer_u spacer_d">
+                        <div class="letter_draw2"></div>
+                        <div class="letter_blank1"></div>
+                    </div>
+                    <div class="row1 spacer_u">
+                        <div class="letter_draw1 spacer_r"></div>
+                        <div class="letter_blank2 spacer_l"></div>
+                    </div>
+                </div>
+            </div>
             <div id="all_content">
-                <div id="header_image">
-                    <img src="./header_img.jpg">
-                </div>
-
-                <div id="title">
-                    <div id="title_background">design by:<br/>szymon jackiewicz</div>
-                    <div id="title_foreground"></div>
-                </div>
-
-                <div id="button_container">
-                    <a onclick="ResetContent(0)" id="proj_button" class="button"><i class="fa fa-briefcase"></i></a>
-                    <div class="spacer"></div>
-                    <a onclick="ResetContent(1)" id="home_button" class="button selected">welcome</a>
-                    <div class="spacer"></div>
-                    <a onclick="ResetContent(2)" id="hmm_button" class="button"><i class="fa fa-cloud"></i></a>
-                </div>
-
                 <div id="quick_links">
                     <p id ="tooltip">quick links</p>
                     <a href="https://github.com/SzyJ/CV/raw/master/Szymon_Jackiewicz_CV.pdf" target="_blank" onmouseover="setTooltipText('download CV')" onmouseout="resetTooltip()"><i class="fa fa-file-text"></i></a>
@@ -541,13 +603,15 @@
                     <a href="https://szy.wtf/projects/cmd/" onmouseover="setTooltipText('open terminal')" onmouseout="resetTooltip()"><i class="fa fa-terminal"></i></a>
                 </div>
 
+                <h1 id="title">Scroll down for projects...</h1>
+
                 <div id="scroll_arrow">
                     <div class="arrow"></div>
                 </div>
             </div>
         </div>
 
-        <div id="loaded_content" class="hmm">
+        <div id="loaded_content" class="project">
         </div>
 
     </body>
